@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>M8trix Menu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="M8trix Hotels restaurant and La Cimbali café menu — Gedam Sefer, near Soramba, Piazza, Addis Ababa.">
+<meta name="theme-color" content="#2E2018">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="M8trix Hotels">
+<meta property="og:title" content="M8trix Menu · Restaurant & La Cimbali café">
+<meta property="og:description" content="The M8trix Hotels menu: breakfast, Ethiopian fasting and meat dishes, pizza, burgers, juices and barista coffee. Gedam Sefer, near Soramba, Piazza.">
+<meta property="og:image" content="https://hayelemikael.github.io/M8trix-hotel/img/og-menu.jpg">
+<meta property="og:url" content="https://hayelemikael.github.io/M8trix-hotel/menu.html">
+<link rel="canonical" href="https://hayelemikael.github.io/M8trix-hotel/menu.html">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Josefin+Sans:wght@300;600&family=Figtree:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600&family=Noto+Serif+Ethiopic:wght@500&display=swap">
+<style>
+/* Layout: a phone-first table menu. Walnut header over the dining-hall photo, then a plaster-white
+   list read like a printed card (leader dots to the price). One accent: the reception wall's orange. */
+:root{
+  --bg:#F7F6F3; --surface:#FFFFFF; --ink:#23180F; --muted:#6B5E54; --line:#E3DED6;
+  --rust:#C9551A; --rust-ink:#A8440F; --on-rust:#FFFFFF;
+  --walnut:#2E2018; --on-walnut:#F3ECE3; --on-walnut-muted:#BFAF9F;
+  --glass:#2D6A5E; --shade:rgb(35 24 15 / .5);
+  --display:"Marcellus","Noto Serif Ethiopic",Georgia,"Times New Roman",serif;
+  --brand:"Josefin Sans","Noto Sans Ethiopic",system-ui,sans-serif;
+  --body:"Figtree","Noto Sans Ethiopic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:6px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15100C; --surface:#1E1712; --ink:#F1E9DF; --muted:#B3A597; --line:#33281F;
+  --rust:#E2733A; --rust-ink:#EE8A55; --on-rust:#1A100A;
+  --walnut:#0E0A07; --glass:#62A895; --shade:rgb(0 0 0 / .65); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15100C; --surface:#1E1712; --ink:#F1E9DF; --muted:#B3A597; --line:#33281F;
+  --rust:#E2733A; --rust-ink:#EE8A55; --on-rust:#1A100A;
+  --walnut:#0E0A07; --glass:#62A895; --shade:rgb(0 0 0 / .65); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:140px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--walnut)}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.wm{display:block;height:30px;width:auto}
+.wm text{font-family:var(--brand);fill:currentColor}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--walnut);color:var(--on-walnut)}
+.bar .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.bar a{color:inherit;margin-right:auto;text-decoration:none;padding:10px 0}
+.table-badge{font-size:.82rem;font-weight:600;background:var(--rust);color:var(--on-rust);border-radius:99px;padding:.3em .8em;white-space:nowrap}
+.lang{background:none;border:1px solid rgb(255 255 255 / .28);color:var(--on-walnut);border-radius:var(--r);padding:.4em .75em;font-size:.85rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;background:var(--walnut);color:var(--on-walnut);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.hero .wrap{position:relative;padding-block:40px 30px}
+.hero .eyebrow{font-family:var(--brand);font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:#F2B48E}
+.hero h1{font-size:clamp(2.6rem,10vw,3.8rem);margin-top:8px}
+.hero h1 span{display:block;font-size:.42em;color:var(--on-walnut-muted);margin-top:6px}
+.hero p{margin-top:10px;color:#E8DDD1;max-width:34em;font-size:.95rem}
+
+/* controls */
+.controls{position:sticky;top:calc(56px + env(safe-area-inset-top,0px));z-index:30;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.controls .wrap{display:flex;flex-direction:column;gap:10px;padding-block:12px 10px}
+.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:0 14px}
+.search svg{width:18px;height:18px;color:var(--muted);flex:none}
+.search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:.95rem;color:var(--ink);padding:.62em 0;outline:none}
+.search:focus-within{border-color:var(--rust)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;text-decoration:none;min-height:40px;display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;padding:.42em .95em;font-size:.87rem;font-weight:500;cursor:pointer;white-space:nowrap}
+.chip[aria-current="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.f[aria-pressed="true"]{background:color-mix(in srgb,var(--glass) 14%,var(--surface));color:var(--glass);border-color:var(--glass)}
+.toolbar{background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-block:12px}
+.toolbar #filters{flex-wrap:wrap}
+.toolbar #priceSeg{margin-left:auto}
+@media (max-width:520px){.toolbar #priceSeg{margin-left:0}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:2px;background:var(--surface)}
+.seg button{border:0;background:none;border-radius:99px;padding:.4em .95em;min-height:40px;font-size:.84rem;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--rust);color:var(--on-rust)}
+.seg.grp button{font-size:.88rem;padding:.38em 1.1em}
+.seg.grp button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* menu */
+main{padding-bottom:110px}
+.cat{padding-top:34px}
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.cat-head h2{font-size:1.9rem}
+.cat-head span{font-size:.88rem;color:var(--muted)}
+.cat-note{display:flex;gap:10px;align-items:center;font-size:.88rem;color:var(--muted);margin-top:10px}
+.cat-note svg{width:22px;height:22px;flex:none;color:var(--rust)}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.item-main{min-width:0}
+.name-row{display:flex;align-items:baseline;gap:8px}
+.item h3{font-size:1.2rem}
+.lead{flex:1;min-width:12px;border-bottom:1.5px dotted var(--line);transform:translateY(-5px)}
+.price{font-weight:700;color:var(--rust-ink);white-space:nowrap;font-size:1.05rem}
+.price small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);text-align:right}
+.alt{font-size:.86rem;color:var(--muted);margin-top:1px}
+.desc{font-size:.92rem;color:var(--muted);margin-top:6px;max-width:58ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:.7rem;font-weight:600;letter-spacing:.03em;border:1px solid currentColor;border-radius:4px;padding:.12em .5em;color:var(--muted)}
+.tag.sig{color:var(--rust-ink)}
+.tag.fast,.tag.fastopt,.tag.stamp{color:var(--glass)}
+.tag.ahead,.tag.share{color:var(--ink)}
+.add-col{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:6px}
+.add{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--rust);background:var(--surface);color:var(--rust-ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.add.in{background:var(--rust);color:var(--on-rust)}
+.add.in::after{content:attr(data-q);font-size:.95rem;font-weight:700}
+.add.in span{display:none}
+.item.off{opacity:.55}
+.item.off .add{display:none}
+.off-note{font-size:.78rem;font-weight:600;color:var(--rust-ink)}
+.empty{padding:48px 0;text-align:center;color:var(--muted)}
+.foot{margin-top:40px;padding:22px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px;font-size:.88rem;color:var(--muted)}
+.foot a{color:var(--ink);display:inline-block;padding:.45em 0}
+.card9{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:var(--rust);color:var(--on-rust);border-radius:10px;padding:16px 18px;margin-top:34px}
+.card9 b{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1}
+.card9 p{font-size:.9rem}
+.follow{margin-top:34px;padding:22px 0 4px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:12px}
+.follow h2{font-size:1.6rem}
+.follow > p{color:var(--muted);font-size:.92rem}
+.soc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.soc a{display:flex;flex-direction:column;gap:1px;padding:10px 12px;min-height:52px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--ink);text-decoration:none;min-width:0}
+.soc a:hover{border-color:var(--rust)}
+.soc b{font-weight:600;font-size:.95rem}
+.soc span{font-size:.78rem;color:var(--rust-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.share-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.9rem;color:var(--muted)}
+.share-row span{margin-right:4px}
+.share-row .btn{padding:.55em .95em;font-size:.86rem}
+.chat{font-size:.88rem;color:var(--muted)}
+.chat a{color:var(--rust-ink);font-weight:600;display:inline-block;padding:.35em 0}
+@media (max-width:420px){.soc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.staff-link{background:none;border:0;padding:.7em 0;text-decoration:underline;cursor:pointer;color:var(--muted);font-size:.85rem;align-self:flex-start}
+
+/* order tray */
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));pointer-events:none}
+.tray-btn{pointer-events:auto;max-width:728px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:var(--walnut);color:var(--on-walnut);border:0;border-radius:12px;padding:14px 18px;cursor:pointer;box-shadow:0 10px 30px -10px rgb(0 0 0 / .5)}
+.tray-btn b{font-weight:700}
+.tray-btn .count{background:var(--rust);color:#fff;border-radius:99px;padding:.1em .6em;font-weight:700;margin-right:8px}
+dialog{border:0;padding:0;background:var(--surface);color:var(--ink);border-radius:14px 14px 0 0;width:100%;max-width:760px;margin:auto auto 0;max-height:88vh}
+dialog::backdrop{background:var(--shade)}
+.sheet{display:flex;flex-direction:column;max-height:88vh}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line)}
+.sheet-head h2{font-size:1.5rem}
+.x{min-height:40px;background:none;border:1px solid var(--line);border-radius:var(--r);padding:.4em .8em;cursor:pointer;font-size:.88rem}
+.sheet-body{overflow-y:auto;padding:8px 20px}
+.line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line .n{min-width:0}
+.line .n b{display:block;font-weight:600}
+.line .n span{font-size:.82rem;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:1.1rem;line-height:1}
+.qty span{min-width:1.4em;text-align:center;font-weight:600}
+.line .amt{font-weight:600;min-width:6.5em;text-align:right}
+.sum{padding:12px 20px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.srow{display:flex;justify-content:space-between;font-size:.92rem;color:var(--muted)}
+.srow.total{font-size:1.1rem;color:var(--ink);font-weight:700;padding-top:6px;border-top:1px solid var(--line)}
+.srow.total b{color:var(--rust-ink)}
+.waiter{background:color-mix(in srgb,var(--glass) 10%,var(--surface));border:1px solid var(--glass);color:var(--ink);border-radius:var(--r);padding:10px 12px;font-size:.9rem;margin-top:6px}
+.waiter b{color:var(--glass)}
+.clear{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;align-self:flex-start;padding:0;font-size:.85rem;margin-top:4px}
+
+/* staff QR maker */
+.qr-panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:28px;display:flex;flex-direction:column;gap:16px}
+.qr-panel h2{font-size:1.6rem}
+.qr-panel > p{color:var(--muted);font-size:.92rem}
+.qform{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:.8rem;font-weight:600;color:var(--muted)}
+.field input{font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:.65em .8em;width:100%;min-width:0}
+.field input:focus{outline:none;border-color:var(--rust)}
+.hint{font-size:.82rem;color:var(--muted)}
+.warn{font-size:.86rem;color:var(--rust-ink)}
+.qactions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:.92rem;padding:.75em 1.15em;border-radius:var(--r);border:1px solid transparent;cursor:pointer;text-decoration:none}
+.btn-rust{background:var(--rust);color:var(--on-rust)}
+.btn-line{background:none;border-color:var(--ink);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+/* the printable card always prints the light palette */
+.tcard{position:relative;aspect-ratio:105/148;max-width:100%;background:#FFFFFF;color:#23180F;border:1px solid #E3DED6;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:7% 8% 6%}
+.tcard .band{position:absolute;inset:0 0 auto;height:5%;background:#C9551A}
+.tcard .wm{height:auto;width:58%;color:#23180F;margin-top:4%}
+.tcard .scan{font-family:var(--display);font-size:clamp(.9rem,4.2cqw,1.4rem);margin-top:6%;line-height:1.2}
+.tcard .scan-am{font-family:"Noto Sans Ethiopic",var(--body);font-size:clamp(.7rem,3.2cqw,1rem);color:#6B5E54;margin-top:2%}
+.tcard svg.qr{width:66%;height:auto;margin-top:5%}
+.tcard .tno{font-family:var(--brand);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(.75rem,3.6cqw,1.1rem);margin-top:4%}
+.tcard .soc-line{margin-top:auto;font-family:var(--brand);font-weight:600;font-size:clamp(.55rem,2.6cqw,.85rem);letter-spacing:.04em;color:#A8440F}
+.tcard .soc-line + .small{margin-top:3%}
+.tcard .small{margin-top:auto;font-size:clamp(.55rem,2.4cqw,.78rem);color:#6B5E54;line-height:1.35}
+.tcard{container-type:inline-size}
+.tcard .sample{position:absolute;top:42%;left:-10%;right:-10%;transform:rotate(-24deg);background:rgb(168 68 15 / .88);color:#fff;font-weight:700;letter-spacing:.2em;font-size:clamp(.7rem,4cqw,1.1rem);padding:.4em 0}
+@media (max-width:460px){.qform{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr;gap:10px}}
+
+html[lang="am"] body{line-height:1.7}
+html[lang="am"] h1,html[lang="am"] h2,html[lang="am"] h3{font-family:"Noto Serif Ethiopic",var(--display);line-height:1.35}
+
+@media print{
+  @page{size:A4;margin:10mm}
+  body{background:#fff}
+  body > *:not(main),main > .wrap > *:not(#qrPanel),#qrPanel > *:not(.cards){display:none!important}
+  main{padding:0}
+  #qrPanel{border:0;padding:0;margin:0}
+  .cards{grid-template-columns:repeat(2,95mm);gap:6mm;justify-content:center}
+  .tcard{width:95mm;break-inside:avoid;border:1px dashed #bbb;border-radius:0}
+  .tcard .sample{display:none}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wordmark" viewBox="0 0 150 64">
+    <text fill="currentColor" x="0" y="40" font-size="31" font-weight="300" textLength="30" lengthAdjust="spacingAndGlyphs">M</text>
+    <g fill="none" stroke="currentColor" stroke-width="2.6"><ellipse cx="43.5" cy="13" rx="7.5" ry="9"/><ellipse cx="43.5" cy="30.5" rx="9.5" ry="9.5"/></g>
+    <text fill="currentColor" x="57" y="40" font-size="31" font-weight="300" textLength="89" lengthAdjust="spacingAndGlyphs">TRIX</text>
+    <rect x="0" y="46" width="146" height="1.6" fill="currentColor"/>
+    <text fill="currentColor" x="1" y="61" font-size="10.5" font-weight="600" textLength="144" lengthAdjust="spacing">HOTELS</text>
+  </symbol>
+  <symbol id="cup" viewBox="0 0 64 64"><path d="M14 26h30v14a12 12 0 0 1-12 12h-6a12 12 0 0 1-12-12z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M44 30h4a6 6 0 0 1 0 12h-4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M22 10c-3 4 3 6 0 10M30 8c-3 5 3 7 0 12M38 10c-3 4 3 6 0 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="./" aria-label="M8trix Hotels"><svg class="wm" viewBox="0 0 150 64" role="img" style="color:var(--on-walnut)"><use href="#wordmark"/></svg></a>
+    <span class="table-badge" id="tableBadge" hidden></span>
+    <button class="lang" id="langBtn" type="button">አማርኛ</button>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="img/dining-3.jpg" srcset="img/sm/dining-3.jpg 700w, img/dining-3.jpg 1400w" sizes="100vw" alt="" width="1400" height="933">
+  <div class="wrap">
+    <div class="eyebrow" data-t="eyebrow">Restaurant &amp; La Cimbali café</div>
+    <h1 data-t="title">Menu<span>ሜኑ</span></h1>
+    <p data-t="intro">Gedam Sefer, near Soramba, Piazza. Tap + to build your list, then show it to your waiter.</p>
+  </div>
+</section>
+
+<div class="toolbar"><div class="wrap">
+  <div class="seg grp" role="group" aria-label="Food or drinks" id="groupSeg"></div>
+  <div class="chips" id="filters"></div>
+  <div class="seg" role="group" aria-label="Price display" id="priceSeg">
+    <button type="button" data-mode="menu" aria-pressed="true" data-t="pMenu">Menu price</button>
+    <button type="button" data-mode="full" aria-pressed="false" data-t="pFull">With SC + VAT</button>
+  </div>
+</div></div>
+
+<div class="controls">
+  <div class="wrap">
+    <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" autocomplete="off" placeholder="Search the menu"></label>
+    <nav class="chips" id="cats" aria-label="Menu sections"></nav>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div id="menu"></div>
+    <p class="empty" id="empty" hidden></p>
+
+    <div class="card9"><b>9+1</b><p data-t="nine">Every barista drink earns a stamp. Collect nine and your tenth is free. Ask for a card at the counter.</p></div>
+
+    <section class="follow" id="follow" aria-labelledby="folTitle">
+      <h2 id="folTitle" data-t="folTitle">Follow @m8trixhotel</h2>
+      <p data-t="folIntro">Enjoying your meal? Share a photo with #M8trixPiazza.</p>
+      <div class="soc" id="socList"></div>
+      <div class="share-row" id="shareRow">
+        <span data-t="shareLbl">Send this menu to a friend</span>
+        <a class="btn btn-line" id="shWa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-line" id="shTg" href="#" target="_blank" rel="noopener">Telegram</a>
+      </div>
+      <p class="chat" id="chatLine"></p>
+    </section>
+
+    <div class="foot">
+      <p data-t="taxNote">Prices are in Ethiopian birr. A 10% service charge and 15% VAT are added to the bill. Switch to “With SC + VAT” to see what you'll pay.</p>
+      <p data-t="allergy">Allergies or fasting? Tell your waiter before you order.</p>
+      <p><a href="./" data-t="back">M8trix Hotels: rooms and reservations</a></p>
+      <button class="staff-link" type="button" id="staffBtn" data-t="staff">Staff: make table QR cards</button>
+    </div>
+
+    <section class="qr-panel" id="qrPanel" hidden aria-labelledby="qrTitle">
+      <h2 id="qrTitle" data-t="qrTitle">Table QR cards</h2>
+      <p data-t="qrIntro">Each card opens this menu. Add table numbers and the menu shows the guest's table at the top of their list.</p>
+      <div class="qform">
+        <div class="field full"><label for="qUrl" data-t="qUrl">Menu web address</label><input type="url" id="qUrl" inputmode="url" placeholder="https://your-domain.com/menu.html" autocomplete="off">
+          <span class="hint" data-t="qUrlHint">The address where menu.html lives on your website.</span></div>
+        <div class="field"><label for="qFrom" data-t="qFrom">First table</label><input type="number" id="qFrom" min="1" max="200" placeholder="1"></div>
+        <div class="field"><label for="qTo" data-t="qTo">Last table</label><input type="number" id="qTo" min="1" max="200" placeholder="12"></div>
+      </div>
+      <p class="warn" id="qWarn" hidden></p>
+      <div class="qactions">
+        <button class="btn btn-rust" type="button" id="qPrint" data-t="qPrint">Print cards</button>
+        <button class="btn btn-line" type="button" id="qPng" data-t="qPng">Save first card as PNG</button>
+        <button class="btn btn-line" type="button" id="qSvg" data-t="qSvg">Save QR code as SVG</button>
+      </div>
+      <p class="hint" data-t="qTest">Before printing many, print one card and scan it with two different phones.</p>
+      <div class="cards" id="cards"></div>
+    </section>
+  </div>
+</main>
+
+<div class="tray" id="tray" hidden><button class="tray-btn" type="button" id="trayBtn"><span><span class="count num" id="trayCount">0</span><span data-t="myList">My list</span></span><b class="num" id="trayTotal"></b></button></div>
+
+<dialog id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet">
+    <div class="sheet-head"><h2 id="sheetTitle" data-t="myList">My list</h2><button class="x" type="button" id="sheetClose" data-t="close">Close</button></div>
+    <div class="sheet-body" id="lines"></div>
+    <div class="sum">
+      <div class="srow"><span data-t="subtotal">Menu prices</span><b class="num" id="sSub"></b></div>
+      <div class="srow"><span data-t="sc">Service charge 10%</span><b class="num" id="sSc"></b></div>
+      <div class="srow"><span data-t="vat">VAT 15%</span><b class="num" id="sVat"></b></div>
+      <div class="srow total"><span data-t="total">Estimated total</span><b class="num" id="sTot"></b></div>
+      <div class="waiter" id="waiterNote"></div>
+      <button class="clear" type="button" id="clearList" data-t="clear">Clear the list</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="social.js"></script>
+<script src="menu-data.js"></script>
+<script>
+/* Minimal QR Code encoder: byte mode, error correction level M, versions 1–15, automatic mask.
+   M8QR.make(text) -> {size, dark(x,y)} ; M8QR.svgPath(qr, quiet) -> SVG path data */
+var M8QR=(function(){
+  // [ecCodewordsPerBlock, [blocks, dataCodewords], [blocks, dataCodewords]] for level M
+  var EC=[null,[10,[1,16]],[16,[1,28]],[26,[1,44]],[18,[2,32]],[24,[2,43]],[16,[4,27]],[18,[4,31]],[22,[2,38],[2,39]],
+    [22,[3,36],[2,37]],[26,[4,43],[1,44]],[30,[1,50],[4,51]],[22,[6,36],[2,37]],[22,[8,37],[1,38]],[24,[4,40],[5,41]],[24,[5,41],[5,42]]];
+  var ALIGN=[null,[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70]];
+  function dataCap(v){var e=EC[v],n=0;for(var g=1;g<e.length;g++)n+=e[g][0]*e[g][1];return n;}
+  function rawModules(v){var r=(16*v+128)*v+64;if(v>=2){var a=Math.floor(v/7)+2;r-=(25*a-10)*a-55;if(v>=7)r-=36;}return r;}
+  function gfMul(x,y){var z=0;for(var i=7;i>=0;i--){z=(z<<1)^((z>>>7)*0x11D);z^=((y>>>i)&1)*x;}return z&255;}
+  function rsDivisor(n){var r=[];for(var i=0;i<n;i++)r.push(0);r[n-1]=1;var root=1;
+    for(i=0;i<n;i++){for(var j=0;j<n;j++){r[j]=gfMul(r[j],root);if(j+1<n)r[j]^=r[j+1];}root=gfMul(root,2);}return r;}
+  function rsRemainder(data,div){var r=div.map(function(){return 0;});
+    data.forEach(function(b){var f=b^r.shift();r.push(0);div.forEach(function(c,i){r[i]^=gfMul(c,f);});});return r;}
+  function utf8(s){return Array.prototype.slice.call(unescape(encodeURIComponent(s))).map(function(c){return c.charCodeAt(0);});}
+
+  function make(text){
+    var bytes=utf8(text),v,bits=[];
+    for(v=1;v<=15;v++){var cc=v<10?8:16;if(4+cc+bytes.length*8<=dataCap(v)*8)break;}
+    if(v>15)throw new Error("Text too long for QR");
+    function push(val,len){for(var i=len-1;i>=0;i--)bits.push((val>>>i)&1);}
+    push(4,4);push(bytes.length,v<10?8:16);bytes.forEach(function(b){push(b,8);});
+    var cap=dataCap(v)*8;push(0,Math.min(4,cap-bits.length));while(bits.length%8)bits.push(0);
+    for(var pad=0xEC;bits.length<cap;pad^=0xEC^0x11)push(pad,8);
+    var cw=[];for(var i=0;i<bits.length;i+=8){var b=0;for(var k=0;k<8;k++)b=(b<<1)|bits[i+k];cw.push(b);}
+    // split into blocks, add Reed–Solomon codewords, interleave
+    var e=EC[v],ecLen=e[0],div=rsDivisor(ecLen),blocks=[],off=0;
+    for(var g=1;g<e.length;g++)for(var n=0;n<e[g][0];n++){var d=cw.slice(off,off+e[g][1]);off+=e[g][1];blocks.push({d:d,e:rsRemainder(d,div)});}
+    var all=[],maxD=Math.max.apply(null,blocks.map(function(x){return x.d.length;}));
+    for(i=0;i<maxD;i++)blocks.forEach(function(x){if(i<x.d.length)all.push(x.d[i]);});
+    for(i=0;i<ecLen;i++)blocks.forEach(function(x){all.push(x.e[i]);});
+    if(all.length!==Math.floor(rawModules(v)/8))throw new Error("QR table error v"+v);
+
+    var size=v*4+17,m=[],fn=[];
+    for(var y=0;y<size;y++){m.push(new Array(size).fill(false));fn.push(new Array(size).fill(false));}
+    function set(x,y,d){m[y][x]=d;fn[y][x]=true;}
+    for(i=0;i<size;i++){set(6,i,i%2===0);set(i,6,i%2===0);}
+    [[3,3],[size-4,3],[3,size-4]].forEach(function(p){
+      for(var dy=-4;dy<=4;dy++)for(var dx=-4;dx<=4;dx++){var x=p[0]+dx,yy=p[1]+dy;
+        if(x>=0&&x<size&&yy>=0&&yy<size){var dist=Math.max(Math.abs(dx),Math.abs(dy));set(x,yy,dist!==2&&dist!==4);}}});
+    var al=ALIGN[v],last=al.length-1;
+    for(i=0;i<al.length;i++)for(var j=0;j<al.length;j++){
+      if((i===0&&j===0)||(i===0&&j===last)||(i===last&&j===0))continue;
+      for(var dy2=-2;dy2<=2;dy2++)for(var dx2=-2;dx2<=2;dx2++)set(al[i]+dx2,al[j]+dy2,Math.max(Math.abs(dx2),Math.abs(dy2))!==1);}
+    function format(mask){
+      var data=(0<<3)|mask,rem=data;for(var q=0;q<10;q++)rem=(rem<<1)^((rem>>>9)*0x537);
+      var fb=((data<<10)|rem)^0x5412,bit=function(n){return ((fb>>>n)&1)===1;};
+      for(var a=0;a<=5;a++)set(8,a,bit(a));
+      set(8,7,bit(6));set(8,8,bit(7));set(7,8,bit(8));
+      for(a=9;a<15;a++)set(14-a,8,bit(a));
+      for(a=0;a<8;a++)set(size-1-a,8,bit(a));
+      for(a=8;a<15;a++)set(8,size-15+a,bit(a));
+      set(8,size-8,true);
+    }
+    format(0);
+    if(v>=7){var rem=v;for(var q=0;q<12;q++)rem=(rem<<1)^((rem>>>11)*0x1F25);var vb=(v<<12)|rem;
+      for(i=0;i<18;i++){var bt=((vb>>>i)&1)===1,a2=size-11+i%3,b2=Math.floor(i/3);set(a2,b2,bt);set(b2,a2,bt);}}
+    // place data
+    var bi=0;
+    for(var right=size-1;right>=1;right-=2){if(right===6)right=5;
+      for(var vert=0;vert<size;vert++)for(var jj=0;jj<2;jj++){var x=right-jj,up=((right+1)&2)===0,yy=up?size-1-vert:vert;
+        if(!fn[yy][x]&&bi<all.length*8){m[yy][x]=((all[bi>>>3]>>>(7-(bi&7)))&1)===1;bi++;}}}
+    function maskBit(mk,x,y){switch(mk){case 0:return (x+y)%2===0;case 1:return y%2===0;case 2:return x%3===0;case 3:return (x+y)%3===0;
+      case 4:return (Math.floor(x/3)+Math.floor(y/2))%2===0;case 5:return x*y%2+x*y%3===0;case 6:return (x*y%2+x*y%3)%2===0;default:return ((x+y)%2+x*y%3)%2===0;}}
+    function applyMask(mk){for(var y=0;y<size;y++)for(var x=0;x<size;x++)if(!fn[y][x]&&maskBit(mk,x,y))m[y][x]=!m[y][x];}
+    function penalty(){
+      var p=0,dark=0,x,y;
+      function lines(get){for(var a=0;a<size;a++){var run=1,line=[];for(var b=0;b<size;b++){line.push(get(a,b)?1:0);
+        if(b>0){if(line[b]===line[b-1]){run++;if(run===5)p+=3;else if(run>5)p++;}else run=1;}}
+        var s=line.join("");var re=/(?=(10111010000|00001011101))/g;while(re.exec(s)){p+=40;re.lastIndex++;}}}
+      lines(function(a,b){return m[a][b];});lines(function(a,b){return m[b][a];});
+      for(y=0;y<size-1;y++)for(x=0;x<size-1;x++){var c=m[y][x];if(c===m[y][x+1]&&c===m[y+1][x]&&c===m[y+1][x+1])p+=3;}
+      for(y=0;y<size;y++)for(x=0;x<size;x++)if(m[y][x])dark++;
+      p+=Math.floor(Math.abs(dark*20-size*size*10)/(size*size))*10;return p;}
+    var best=0,bestP=Infinity;
+    for(var mk=0;mk<8;mk++){applyMask(mk);format(mk);var pp=penalty();if(pp<bestP){bestP=pp;best=mk;}applyMask(mk);}
+    applyMask(best);format(best);
+    return {size:size,version:v,dark:function(x,y){return m[y][x];}};
+  }
+  function svgPath(qr,quiet){var q=quiet==null?4:quiet,d="";
+    for(var y=0;y<qr.size;y++)for(var x=0;x<qr.size;x++)if(qr.dark(x,y))d+="M"+(x+q)+" "+(y+q)+"h1v1h-1z";return d;}
+  return {make:make,svgPath:svgPath};
+})();
+if(typeof module!=="undefined")module.exports=M8QR;
+
+
+/* ===== Settings ===== */
+const CONFIG = {
+  // The public address of this page, used for the QR cards. Example: "https://m8trixhotel.com/menu.html"
+  menuUrl: "https://hayelemikael.github.io/M8trix-hotel/menu.html",
+  // Same back-office URL as index.html. When set, the menu comes from the Google Sheet's "Menu" tab.
+  endpoint: ""
+};
+const SC=0.10, VAT=0.15;
+
+/* ===== Menu (used until the Google Sheet "Menu" tab is connected) =====
+   Generated from menu_data.py. tags: sig house signature · stamp 9+1 stamp · fast fasting dish
+   fastopt fasting version available · share for sharing · ahead order a day ahead */
+let MENU = Array.isArray(window.M8_MENU) ? window.M8_MENU : [];   // from menu-data.js
+const BUILTIN_NOTES=Object.fromEntries(MENU.filter(c=>c.note).map(c=>[c.id,c.note]));
+const TAGS={sig:{en:"House signature",am:"የቤቱ ልዩ"},stamp:{en:"Earns a 9+1 stamp",am:"9+1 ስታምፕ ያስገኛል"},fast:{en:"Fasting",am:"ጾም"},
+  fastopt:{en:"Fasting version available",am:"የጾም አማራጭ አለ"},share:{en:"For sharing",am:"ለጋራ"},ahead:{en:"Order a day ahead",am:"ከአንድ ቀን በፊት ይዘዙ"}};
+const FILTERS=[{id:"fast",en:"Fasting",am:"ጾም"},{id:"stamp",en:"Earns a stamp",am:"ስታምፕ ያስገኛል"},{id:"share",en:"For sharing",am:"ለጋራ"}];
+const GROUPS=[{id:"all",en:"All",am:"ሁሉም"},{id:"food",en:"Food",am:"ምግብ"},{id:"drink",en:"Drinks",am:"መጠጥ"}];
+
+const T={
+ en:{folTitle:"Follow @m8trixhotel",folIntro:"Enjoying your meal? Share a photo with #M8trixPiazza.",shareLbl:"Send this menu to a friend",
+  shareText:"The M8trix Hotels menu, Piazza",chat:n=>`Questions or a takeaway order? WhatsApp or Telegram us on <a href="${n.wa}" target="_blank" rel="noopener">${n.d}</a>.`,cardSoc:"Follow us",eyebrow:"Restaurant &amp; La Cimbali café",title:"Menu<span>ሜኑ</span>",intro:"Gedam Sefer, near Soramba, Piazza. Tap + to build your list, then show it to your waiter.",
+  search:"Search the menu",all:"All",pMenu:"Menu price",pFull:"With SC + VAT",inclTax:"incl. SC &amp; VAT",
+  nine:"Every barista drink earns a stamp. Collect nine and your tenth is free. Ask for a card at the counter.",
+  taxNote:"Prices are in Ethiopian birr. A 10% service charge and 15% VAT are added to the bill. Switch to “With SC + VAT” to see what you'll pay.",
+  allergy:"Allergies or fasting? Tell your waiter before you order.",back:"M8trix Hotels: rooms and reservations",staff:"Staff: make table QR cards",
+  noMatch:q=>`Nothing on the menu matches “${q}”.`,noFilter:"Nothing on the menu has this tag yet.",unavailable:"Not available today",
+  add:n=>`Add ${n}`,myList:"My list",close:"Close",subtotal:"Menu prices",sc:"Service charge 10%",vat:"VAT 15%",total:"Estimated total",clear:"Clear the list",
+  waiter:t=>t?`Show this screen to your waiter. <b>Table ${t}</b>.`:"Show this screen to your waiter. This list is not sent to the kitchen.",
+  table:t=>`Table ${t}`,lang:"አማርኛ",items:n=>n===1?"1 item":`${n} items`,
+  qrTitle:"Table QR cards",qrIntro:"Each card opens this menu. Add table numbers and the menu shows the guest's table at the top of their list.",
+  qUrl:"Menu web address",qUrlHint:"The address where menu.html lives on your website.",qFrom:"First table",qTo:"Last table",
+  qPrint:"Print cards",qPng:"Save first card as PNG",qSvg:"Save QR code as SVG",qTest:"Before printing many, print one card and scan it with two different phones.",
+  qNeedUrl:"Enter your menu's web address (starting with https://) to make printable cards. The cards below are a sample.",
+  qBadUrl:"That doesn't look like a web address. It should start with https://",
+  qClaude:"This is a private claude.ai link. Guests can only open it if you share the page publicly. Use your own website address for printed cards.",
+  qTooMany:"Up to 100 cards at a time.",sample:"SAMPLE",scan:"Scan for our menu",tableCard:t=>`Table ${t}`,cardFoot:"Restaurant & La Cimbali café · Gedam Sefer, near Soramba, Piazza",
+  saved:"Saved.",saveFail:"Couldn't save the file here."},
+ am:{folTitle:"@m8trixhotel ይከተሉን",folIntro:"ምግቡ ተመችቶዎታል? ፎቶዎን በ #M8trixPiazza ያጋሩ።",shareLbl:"ይህን ሜኑ ለጓደኛዎ ይላኩ",
+  shareText:"የ M8trix ሆቴልስ ሜኑ፣ ፒያሳ",chat:n=>`ጥያቄ ወይም የሚወሰድ ትዕዛዝ አለዎት? በዋትስአፕ ወይም በቴሌግራም <a href="${n.wa}" target="_blank" rel="noopener">${n.d}</a> ያግኙን።`,cardSoc:"ይከተሉን",eyebrow:"ምግብ ቤት እና ላ ቺምባሊ ካፌ",title:"ሜኑ<span>Menu</span>",intro:"ገዳም ሰፈር፣ ሶራምባ አጠገብ፣ ፒያሳ። ዝርዝርዎን ለማዘጋጀት + ይንኩ፤ ከዚያ ለአስተናጋጁ ያሳዩ።",
+  search:"ሜኑውን ይፈልጉ",all:"ሁሉም",pMenu:"የሜኑ ዋጋ",pFull:"ከአገልግሎት እና ቫት ጋር",inclTax:"አገልግሎት እና ቫትን ጨምሮ",
+  nine:"እያንዳንዱ የባሪስታ መጠጥ ስታምፕ ያስገኛል። ዘጠኝ ሲሞሉ አስረኛው በነጻ ነው። ካርድ ከካውንተሩ ይጠይቁ።",
+  taxNote:"ዋጋዎች በብር ናቸው። 10% የአገልግሎት ክፍያ እና 15% ቫት በሂሳቡ ላይ ይጨመራሉ። የሚከፍሉትን ለማየት “ከአገልግሎት እና ቫት ጋር” ይምረጡ።",
+  allergy:"አለርጂ አለብዎት ወይም ይጾማሉ? ከማዘዝዎ በፊት ለአስተናጋጁ ይንገሩ።",back:"M8trix ሆቴልስ፦ ክፍሎች እና ቦታ ማስያዝ",staff:"ለሠራተኞች፦ የጠረጴዛ QR ካርዶች",
+  noMatch:q=>`ከ“${q}” ጋር የሚመሳሰል ምግብ የለም።`,noFilter:"ይህ መለያ ያለው ምግብ ገና የለም።",unavailable:"ዛሬ የለም",
+  add:n=>`${n} ጨምር`,myList:"የእኔ ዝርዝር",close:"ዝጋ",subtotal:"የሜኑ ዋጋ",sc:"የአገልግሎት ክፍያ 10%",vat:"ቫት 15%",total:"የግምት ጠቅላላ",clear:"ዝርዝሩን አጽዳ",
+  waiter:t=>t?`ይህን ገጽ ለአስተናጋጁ ያሳዩ። <b>ጠረጴዛ ${t}</b>።`:"ይህን ገጽ ለአስተናጋጁ ያሳዩ። ዝርዝሩ ወደ ኩሽና አይላክም።",
+  table:t=>`ጠረጴዛ ${t}`,lang:"English",items:n=>`${n} ዓይነት`,
+  qrTitle:"የጠረጴዛ QR ካርዶች",qrIntro:"እያንዳንዱ ካርድ ይህን ሜኑ ይከፍታል። የጠረጴዛ ቁጥር ካከሉ ሜኑው የእንግዳውን ጠረጴዛ በዝርዝሩ ላይ ያሳያል።",
+  qUrl:"የሜኑ ድረ-ገጽ አድራሻ",qUrlHint:"menu.html በድረ-ገጽዎ ላይ ያለበት አድራሻ።",qFrom:"የመጀመሪያ ጠረጴዛ",qTo:"የመጨረሻ ጠረጴዛ",
+  qPrint:"ካርዶቹን አትም",qPng:"የመጀመሪያውን ካርድ PNG አድርገህ አስቀምጥ",qSvg:"QR ኮዱን SVG አድርገህ አስቀምጥ",qTest:"ብዙ ከማተምዎ በፊት አንድ ካርድ አትመው በሁለት የተለያዩ ስልኮች ይሞክሩ።",
+  qNeedUrl:"የሚታተሙ ካርዶችን ለመሥራት የሜኑውን አድራሻ (በ https:// የሚጀምር) ያስገቡ። ከታች ያሉት ናሙና ናቸው።",
+  qBadUrl:"ይህ የድረ-ገጽ አድራሻ አይመስልም። በ https:// መጀመር አለበት።",
+  qClaude:"ይህ የግል claude.ai ሊንክ ነው። እንግዶች የሚከፍቱት ገጹን በይፋ ካጋሩ ብቻ ነው። ለሚታተሙ ካርዶች የራስዎን ድረ-ገጽ አድራሻ ይጠቀሙ።",
+  qTooMany:"በአንድ ጊዜ እስከ 100 ካርዶች።",sample:"ናሙና",scan:"ሜኑውን ለማየት ይቃኙ",tableCard:t=>`ጠረጴዛ ${t}`,cardFoot:"ምግብ ቤት እና ላ ቺምባሊ ካፌ · ገዳም ሰፈር፣ ሶራምባ አጠገብ፣ ፒያሳ",
+  saved:"ተቀምጧል።",saveFail:"ፋይሉን እዚህ ማስቀመጥ አልተቻለም።"}
+};
+
+/* ===== State ===== */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+let lang=store.get("m8lang","en")==="am"?"am":"en";
+let mode=store.get("m8pmode","menu")==="full"?"full":"menu";
+let order=store.get("m8order",{}); if(typeof order!=="object"||!order)order={};
+let filter=null, query="", table=null, group="all";
+const t=k=>T[lang][k];
+const money=n=>Math.round(n).toLocaleString("en-US")+" ETB";
+const shown=p=>mode==="full"?Math.round(p*(1+SC)*(1+VAT)):p;
+function allItems(){return MENU.flatMap(c=>c.items.map(i=>Object.assign({cat:c},i)));}
+function findItem(id){return allItems().find(i=>i.id===id);}
+
+/* ===== Table number from the QR code (#t12) ===== */
+function readHash(){
+  const h=location.hash.replace("#","");
+  const m=/^t(\d{1,3})$/.exec(h);
+  if(m){table=m[1];try{sessionStorage.setItem("m8table",table);}catch(e){}}
+  else{try{table=sessionStorage.getItem("m8table");}catch(e){}}
+  if(h==="qr")openStaff();
+  const b=$("tableBadge");b.hidden=!table;if(table)b.textContent=t("table")(table);
+}
+
+/* ===== Render menu ===== */
+function inGroup(c){return group==="all"||c.group===group||c.group==="extra";}
+function hasTag(i,f){const g=i.tags||[];return f==="fast"?(g.includes("fast")||g.includes("fastopt")):g.includes(f);}
+function matches(i){
+  if(filter&&!hasTag(i,filter))return false;
+  if(!query)return true;
+  const hay=[i.en.n,i.en.d,i.am.n,i.am.d].join(" ").toLowerCase();
+  return query.toLowerCase().split(/\s+/).every(w=>hay.includes(w));
+}
+function renderCats(){
+  $("groupSeg").innerHTML=GROUPS.map(g=>`<button type="button" data-g="${g.id}" aria-pressed="${g.id===group}">${esc(g[lang])}</button>`).join("");
+  $("cats").innerHTML=MENU.filter(inGroup).map((c,i)=>`<a class="chip" href="#c-${esc(c.id)}" data-cat="${esc(c.id)}" aria-current="${i===0}">${esc(c[lang])}</a>`).join("");
+}
+function renderFilters(){
+  $("filters").innerHTML=FILTERS.map(f=>`<button class="chip f" type="button" data-f="${f.id}" aria-pressed="${filter===f.id}">${esc(f[lang])}</button>`).join("");
+}
+function renderMenu(){
+  const other=lang==="en"?"am":"en";let count=0;
+  $("menu").innerHTML=MENU.filter(inGroup).map(c=>{
+    const items=c.items.filter(matches);count+=items.length;if(!items.length)return "";
+    return `<section class="cat" id="c-${esc(c.id)}" data-cat="${esc(c.id)}">
+      <div class="cat-head"><h2>${esc(c[lang])}</h2><span>${esc(c[other])}</span></div>
+      ${c.note?`<p class="cat-note"><svg aria-hidden="true"><use href="#cup"/></svg>${esc(c.note[lang])}</p>`:""}
+      ${items.map(i=>{const q=order[i.id]||0,off=i.avail===false;
+        return `<article class="item${off?" off":""}">
+          <div class="item-main">
+            <div class="name-row"><h3>${esc(i[lang].n)}</h3><span class="lead"></span><span class="price num">${money(shown(i.p))}${mode==="full"?`<small>${t("inclTax")}</small>`:""}</span></div>
+            <div class="alt">${esc(i[other].n)}</div>
+            ${i[lang].d?`<p class="desc">${esc(i[lang].d)}</p>`:""}
+            ${(i.tags||[]).length||off?`<div class="tags">${off?`<span class="off-note">${t("unavailable")}</span>`:""}${(i.tags||[]).filter(g=>TAGS[g]).map(g=>`<span class="tag ${g}">${esc(TAGS[g][lang])}</span>`).join("")}</div>`:""}
+          </div>
+          <div class="add-col"><button class="add${q?" in":""}" type="button" data-add="${esc(i.id)}" data-q="${q}" aria-label="${esc(t("add")(i[lang].n))}"><span>+</span></button></div>
+        </article>`;}).join("")}
+    </section>`;}).join("");
+  const e=$("empty");e.hidden=count>0;if(!count)e.textContent=query?t("noMatch")(query):t("noFilter");
+  watchSections();
+}
+
+/* scroll-spy: highlight the section under the pinned bar */
+let spyCur=null,spyTick=false;
+function spy(){
+  spyTick=false;const bar=document.querySelector(".controls").getBoundingClientRect().bottom+12;
+  let cur=null;document.querySelectorAll(".cat").forEach(sec=>{if(sec.getBoundingClientRect().top<=bar)cur=sec.dataset.cat;});
+  if(!cur){const f=document.querySelector(".cat");cur=f&&f.dataset.cat;}
+  if(cur===spyCur)return;spyCur=cur;
+  $("cats").querySelectorAll(".chip").forEach(ch=>{const on=ch.dataset.cat===cur;ch.setAttribute("aria-current",String(on));
+    if(on){const n=$("cats");n.scrollTo({left:ch.offsetLeft-n.clientWidth/2+ch.clientWidth/2,behavior:"smooth"});}});
+}
+function watchSections(){spyCur=null;spy();}
+window.addEventListener("scroll",()=>{if(!spyTick){spyTick=true;requestAnimationFrame(spy);}},{passive:true});
+
+/* ===== Order list ===== */
+function totals(){let sub=0,n=0;Object.keys(order).forEach(id=>{const i=findItem(id);if(i&&order[id]>0){sub+=i.p*order[id];n+=order[id];}});
+  const sc=Math.round(sub*SC),vat=Math.round((sub+sc)*VAT);return {sub,sc,vat,total:sub+sc+vat,n};}
+function renderTray(){
+  Object.keys(order).forEach(id=>{if(!findItem(id)||!(order[id]>0))delete order[id];});
+  const s=totals();$("tray").hidden=s.n===0;
+  $("trayCount").textContent=s.n;$("trayTotal").textContent=money(mode==="full"?s.total:s.sub);
+  $("lines").innerHTML=Object.keys(order).map(id=>{const i=findItem(id),q=order[id];
+    return `<div class="line"><div class="n"><b>${esc(i[lang].n)}</b><span>${esc(i[lang==="en"?"am":"en"].n)} · ${money(i.p)}</span></div>
+      <div class="qty"><button type="button" data-dec="${esc(id)}" aria-label="−">−</button><span class="num">${q}</span><button type="button" data-inc="${esc(id)}" aria-label="+">+</button></div>
+      <div class="amt num">${money(i.p*q)}</div></div>`;}).join("");
+  $("sSub").textContent=money(s.sub);$("sSc").textContent=money(s.sc);$("sVat").textContent=money(s.vat);$("sTot").textContent=money(s.total);
+  $("waiterNote").innerHTML=t("waiter")(table?esc(table):null);
+  store.set("m8order",order);
+}
+function change(id,d){const q=(order[id]||0)+d;if(q<=0)delete order[id];else order[id]=Math.min(q,30);
+  const b=document.querySelector(`[data-add="${CSS.escape(id)}"]`);if(b){b.dataset.q=order[id]||0;b.classList.toggle("in",!!order[id]);}
+  renderTray();if(!Object.keys(order).length&&$("sheet").open)$("sheet").close();}
+$("menu").addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(b)change(b.dataset.add,1);});
+$("lines").addEventListener("click",e=>{const i=e.target.closest("[data-inc]"),d=e.target.closest("[data-dec]");if(i)change(i.dataset.inc,1);if(d)change(d.dataset.dec,-1);});
+$("trayBtn").onclick=()=>{const s=$("sheet");if(s.showModal)s.showModal();else s.setAttribute("open","");};
+$("sheetClose").onclick=()=>$("sheet").close();
+$("sheet").addEventListener("click",e=>{if(e.target.id==="sheet")$("sheet").close();});
+$("clearList").onclick=()=>{order={};renderMenu();renderTray();$("sheet").close();};
+
+/* ===== Controls ===== */
+let qTimer;
+$("q").addEventListener("input",e=>{clearTimeout(qTimer);qTimer=setTimeout(()=>{query=e.target.value.trim();renderMenu();},120);});
+$("groupSeg").addEventListener("click",e=>{const b=e.target.closest("[data-g]");if(!b)return;group=b.dataset.g;renderCats();renderMenu();});
+$("filters").addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(!b)return;filter=filter===b.dataset.f?null:b.dataset.f;renderFilters();renderMenu();});
+$("priceSeg").addEventListener("click",e=>{const b=e.target.closest("[data-mode]");if(!b)return;mode=b.dataset.mode;store.set("m8pmode",mode);
+  $("priceSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.mode===mode)));renderMenu();renderTray();});
+$("cats").addEventListener("click",e=>{const a=e.target.closest("[data-cat]");if(!a)return;e.preventDefault();
+  const s=document.getElementById("c-"+a.dataset.cat);if(s)s.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+
+/* ===== Staff QR cards ===== */
+function defaultUrl(){
+  if(CONFIG.menuUrl)return CONFIG.menuUrl;
+  const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+  if(!inFrame&&/^https?:$/.test(location.protocol))return location.origin+location.pathname;
+  return "";
+}
+function openStaff(){const p=$("qrPanel");p.hidden=false;if(!$("qUrl").value)$("qUrl").value=defaultUrl();renderCards();}
+$("staffBtn").onclick=()=>{openStaff();$("qrPanel").scrollIntoView({behavior:"smooth"});};
+const SAMPLE_URL="https://m8trixhotel.com/menu.html";
+function cardState(){
+  const raw=$("qUrl").value.trim(),w=$("qWarn");let warn="",ok=false,url=SAMPLE_URL;
+  if(!raw)warn=t("qNeedUrl");
+  else if(!/^https?:\/\/[^\s/]+\.[^\s]+$/i.test(raw))warn=t("qBadUrl");
+  else{ok=true;url=raw.split("#")[0];if(/(^|\.)claude\.ai\//i.test(raw.replace(/^https?:\/\//,"")))warn=t("qClaude");}
+  let from=parseInt($("qFrom").value,10),to=parseInt($("qTo").value,10),tables=[];
+  if(from>0&&!(to>0))to=from;
+  if(from>0&&to>=from){if(to-from>=100){warn=t("qTooMany");to=from+99;}for(let n=from;n<=to;n++)tables.push(n);}
+  w.hidden=!warn;w.textContent=warn;
+  return {ok,url,tables:tables.length?tables:[null]};
+}
+function qrFor(url,tableNo){return M8QR.make(tableNo?`${url}#t${tableNo}`:url);}
+function qrSvg(qr){const s=qr.size+8;return `<svg class="qr" viewBox="0 0 ${s} ${s}" shape-rendering="crispEdges" role="img" aria-label="QR code"><rect width="${s}" height="${s}" fill="#fff"/><path fill="#23180F" d="${M8QR.svgPath(qr,4)}"/></svg>`;}
+function renderCards(){
+  const st=cardState();
+  $("qPrint").disabled=!st.ok;$("qPng").disabled=!st.ok;$("qSvg").disabled=!st.ok;
+  const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+  $("qPrint").hidden=inFrame; // printing works on your own website, not inside a preview frame
+  const tr=T[lang];
+  $("cards").innerHTML=st.tables.map(n=>`<div class="tcard"><span class="band"></span>
+      <svg class="wm" viewBox="0 0 150 64" aria-hidden="true"><use href="#wordmark"/></svg>
+      <div class="scan">${esc(T.en.scan)}</div><div class="scan-am">${esc(T.am.scan)}</div>
+      ${qrSvg(qrFor(st.url,n))}
+      ${n?`<div class="tno">${esc(T.en.tableCard(n))} · ${esc(T.am.tableCard(n))}</div>`:""}
+      ${cardSocialLine()?`<div class="soc-line">${esc(cardSocialLine())}</div>`:""}
+      <div class="small">${esc(tr.cardFoot)}</div>
+      ${st.ok?"":`<div class="sample">${esc(tr.sample)}</div>`}
+    </div>`).join("");
+}
+["qUrl","qFrom","qTo"].forEach(id=>$(id).addEventListener("input",renderCards));
+$("qPrint").onclick=()=>window.print();
+
+async function saveFile(filename,blob){
+  try{
+    const dl=window.claude&&window.claude.use?await window.claude.use("downloads"):null;
+    if(dl){await dl.save({filename,data:blob});return;}
+  }catch(e){if(e&&e.code==="declined")return;}
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},2000);}catch(e){alertLine(t("saveFail"));}
+}
+function alertLine(m){const w=$("qWarn");w.hidden=false;w.textContent=m;}
+$("qSvg").onclick=()=>{const st=cardState();if(!st.ok)return;const n=st.tables[0],qr=qrFor(st.url,n),s=qr.size+8;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${s} ${s}" width="${s*10}" height="${s*10}" shape-rendering="crispEdges"><rect width="${s}" height="${s}" fill="#fff"/><path fill="#23180F" d="${M8QR.svgPath(qr,4)}"/></svg>`;
+  saveFile(n?`m8trix-menu-qr-table-${n}.svg`:"m8trix-menu-qr.svg",new Blob([svg],{type:"image/svg+xml"}));};
+$("qPng").onclick=async()=>{const st=cardState();if(!st.ok)return;const n=st.tables[0];
+  try{await document.fonts.ready;}catch(e){}
+  const W=1240,H=1748,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");
+  g.fillStyle="#fff";g.fillRect(0,0,W,H);g.fillStyle="#C9551A";g.fillRect(0,0,W,Math.round(H*.05));
+  // wordmark
+  const wx=W/2-360,wy=230;g.fillStyle="#23180F";g.font="300 150px 'Josefin Sans', sans-serif";g.textBaseline="alphabetic";
+  g.fillText("M",wx,wy);g.lineWidth=12;g.strokeStyle="#23180F";
+  g.beginPath();g.ellipse(wx+210,wy-131,36,44,0,0,Math.PI*2);g.stroke();g.beginPath();g.ellipse(wx+210,wy-47,46,46,0,0,Math.PI*2);g.stroke();
+  g.fillText("TRIX",wx+275,wy);g.fillRect(wx,wy+30,705,8);
+  g.font="600 50px 'Josefin Sans', sans-serif";g.textAlign="center";
+  if("letterSpacing" in g)g.letterSpacing="58px";g.fillText("HOTELS",W/2+29,wy+105);if("letterSpacing" in g)g.letterSpacing="0px";
+  g.font="72px Marcellus, Georgia, serif";g.fillText(T.en.scan,W/2,520);
+  g.fillStyle="#6B5E54";g.font="50px 'Noto Sans Ethiopic', sans-serif";g.fillText(T.am.scan,W/2,600);
+  const qr=qrFor(st.url,n),mods=qr.size+8,px=Math.floor(760/mods),qs=px*mods,qx=Math.round((W-qs)/2),qy=650;
+  g.fillStyle="#fff";g.fillRect(qx,qy,qs,qs);g.fillStyle="#23180F";
+  for(let y=0;y<qr.size;y++)for(let x=0;x<qr.size;x++)if(qr.dark(x,y))g.fillRect(qx+(x+4)*px,qy+(y+4)*px,px,px);
+  if(n){g.fillStyle="#23180F";g.font="600 62px 'Josefin Sans','Noto Sans Ethiopic',sans-serif";g.fillText(`${T.en.tableCard(n).toUpperCase()} · ${T.am.tableCard(n)}`,W/2,qy+qs+100);}
+  const sl=cardSocialLine();if(sl){g.fillStyle="#A8440F";g.font="600 44px 'Josefin Sans', sans-serif";g.fillText(sl,W/2,H-150);}
+  g.fillStyle="#6B5E54";g.font="38px Figtree, 'Noto Sans Ethiopic', sans-serif";g.fillText(T[lang].cardFoot,W/2,H-75);
+  c.toBlob(b=>{if(b)saveFile(n?`m8trix-table-${n}.png`:"m8trix-menu-card.png",b);},"image/png");
+};
+
+/* ===== Social media & sharing (links come from social.js) ===== */
+const M8 = window.M8 || {messaging:{},social:[]};
+function renderSocial(){
+  $("follow").hidden=!M8.social.length;
+  $("socList").innerHTML=M8.social.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener"><b>${esc(s.name)}</b><span>${esc(s.handle)}</span></a>`).join("");
+  const url=M8.publicUrl?M8.publicUrl(CONFIG.menuUrl)||M8.linktree:"";
+  $("shareRow").hidden=!url;
+  if(url){const sh=M8.shareLinks(url,t("shareText"));$("shWa").href=sh.whatsapp;$("shTg").href=sh.telegram;}
+  $("chatLine").hidden=!M8.waChat;
+  if(M8.waChat)$("chatLine").innerHTML=t("chat")({wa:esc(M8.waChat()),d:esc(M8.messaging.display)});
+}
+function cardSocialLine(){const names=M8.social.slice(0,3).map(s=>s.name).join(" · ");return names?`@m8trixhotel · ${names}`:"";}
+
+/* ===== Menu from the Google Sheet (optional) ===== */
+async function loadSheetMenu(){
+  if(!CONFIG.endpoint)return;
+  try{const r=await fetch(CONFIG.endpoint);const j=await r.json();
+    if(j&&j.ok&&Array.isArray(j.menu)&&j.menu.length){MENU=j.menu.map(c=>Object.assign({group:"food"},c,{note:c.note||BUILTIN_NOTES[c.id]}));renderAll();}}catch(e){/* keep the built-in menu */}
+}
+
+function renderAll(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=T[lang][el.dataset.t];if(typeof v==="string")el.innerHTML=v;});
+  $("q").placeholder=t("search");$("langBtn").textContent=t("lang");
+  readHash();renderCats();renderFilters();renderMenu();renderTray();renderSocial();if(!$("qrPanel").hidden)renderCards();
+}
+$("langBtn").onclick=()=>{lang=lang==="en"?"am":"en";store.set("m8lang",lang);renderAll();};
+window.addEventListener("hashchange",readHash);
+renderAll();
+loadSheetMenu();
+</script>
+
+</body>
+</html>

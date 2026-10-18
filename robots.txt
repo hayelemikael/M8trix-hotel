@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hayelemikael.github.io/M8trix-hotel/sitemap.xml
